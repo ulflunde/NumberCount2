@@ -15,14 +15,14 @@ namespace NumberCount2.Controllers
 
         public IActionResult About()
         {
-            ViewData["Message"] = "Your application description page.";
+            ViewData["Message"] = "This is the action method you get if you add \"Home/About\" to the URL.";
 
             return View();
         }
 
         public IActionResult Contact()
         {
-            ViewData["Message"] = "Your contact page.";
+            ViewData["Message"] = "This is the action method you get if you add \"Home/Contact\" to the URL.";
 
             return View();
         }

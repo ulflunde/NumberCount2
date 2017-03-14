@@ -48,16 +48,28 @@ namespace NumberCount2
                 app.UseExceptionHandler("/Home/Error");
             }
 
-            app.Map("/NumberCount", HandleNumberCount);
+            app.Map("/FutureAction", HandleNumberCount);
 
-            app.UseMvcWithDefaultRoute();
+            app.UseMvc(routes =>
+            {
+                routes.MapRoute(
+                    "Home", 
+                    "Home/Contact",
+                    defaults: new { controller = "Home", action = "Contact" });
+                routes.MapRoute(
+                    "About", 
+                    "{controller=Home}/{action=About}/{id?}");
+                routes.MapRoute(
+                    name: "default",
+                    template: "{controller=NumberCount}/{action=DefaultAction}");
+            });
         }
 
         private static void HandleNumberCount(IApplicationBuilder app)
         {
             app.Run(async context =>
             {
-                await context.Response.WriteAsync("NumberCount is running.");
+                await context.Response.WriteAsync("This is the action method you get if you add \"FutureAction\" to the URL.");
             });
         }
     }
