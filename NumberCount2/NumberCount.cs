@@ -7,14 +7,13 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Microsoft.AspNetCore.Http;
 
 namespace NumberCount2
 {
-    /* OBSOLETE CODE
-     
-    public class Startup
+    public class NumberCount
     {
-        public Startup(IHostingEnvironment env)
+        public NumberCount(IHostingEnvironment env)
         {
             var builder = new ConfigurationBuilder()
                 .SetBasePath(env.ContentRootPath)
@@ -49,15 +48,17 @@ namespace NumberCount2
                 app.UseExceptionHandler("/Home/Error");
             }
 
-            app.UseStaticFiles();
+            app.Map("/NumberCount", HandleNumberCount);
 
-            app.UseMvc(routes =>
+            app.UseMvcWithDefaultRoute();
+        }
+
+        private static void HandleNumberCount(IApplicationBuilder app)
+        {
+            app.Run(async context =>
             {
-                routes.MapRoute(
-                    name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                await context.Response.WriteAsync("NumberCount is running.");
             });
         }
     }
-    */
 }

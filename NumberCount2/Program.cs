@@ -15,7 +15,7 @@ namespace NumberCount2
                 .UseKestrel()
                 .UseContentRoot(Directory.GetCurrentDirectory())
                 .UseIISIntegration()
-                .UseStartup<Startup>()
+                .UseStartup<NumberCount>()
                 .UseApplicationInsights()
                 .Build();
 

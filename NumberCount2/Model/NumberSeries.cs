@@ -58,7 +58,17 @@ namespace NumberCount2.Model
 
         private string SortDigits(int from, int? upTo)
         {
-            return "";
+            string digits = "";
+
+            if (upTo.HasValue && upTo >= from)
+            {
+                for (int d = from; d <= upTo; d++)
+                {
+                    digits += d.ToString();
+                }
+            }
+
+            return digits;
         }  // SortDigits()
 
         private void CountDigits(string digits)
