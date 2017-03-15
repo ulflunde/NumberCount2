@@ -7,6 +7,11 @@ namespace NumberCount2.Model
 {
     public class NumberSeries
     {
+        public int ID { get; set; }  // Required for the primary key when building a Controller with a database for the Model
+
+        public string upto { get; set; }
+
+
         public static int? start = 1;
         public int? end = null;
         public Hashtable count = null;

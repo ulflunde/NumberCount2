@@ -8,6 +8,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
+using NumberCount2.Models;
 
 namespace NumberCount2
 {
@@ -23,13 +25,17 @@ namespace NumberCount2
             Configuration = builder.Build();
         }
 
-        public IConfigurationRoot Configuration { get; }
+        public IConfigurationRoot Configuration { get; }  // Necessary to bind the Model to a View via a Controller
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             // Add framework services.
             services.AddMvc();
+
+            // Add database context to the Dependency Injection container.
+            services.AddDbContext<NumberCount2Context>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("NumberCount2Context")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -71,6 +77,9 @@ namespace NumberCount2
                 routes.MapRoute(
                     name: "DefaultAction",  // defined in NumberCountController.cs
                     template: "{controller=NumberCount}/{action=DefaultAction}");
+                routes.MapRoute(
+                    name: "Result",  // defined in NumberCountController.cs
+                    template: "{controller=NumberCount}/{action=Result}");
             });
 
             // Add static files to the request pipeline. Without this, the app won't find its CSS files.

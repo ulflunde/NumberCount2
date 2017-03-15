@@ -12,10 +12,21 @@
 }
 
 /* Set widths on the form inputs since otherwise they're 100% wide */
-input,
 select,
 textarea {
     max-width: 280px;
+}
+
+input {
+    max-width: 40px;
+}
+
+button {
+    margin-bottom: 1cm;
+}
+
+h2 {
+    margin-bottom: 1cm;
 }
 
 /* Carousel */

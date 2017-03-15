@@ -4,8 +4,11 @@
 @{
     ViewData["Title"] = "NumberCount Index page";
 }
+<form action="/NumberCount/Result">
+    Count the digits used to write numbers from 1 to
+    <!-- Ø{<input asp-for="upto">}.<br /> -->
+    <input name="upto">.<br />
 
-
-<div>
+    <!-- <button type="submit" onclick="location.href='ØUrl.Action("Index", "NumberCount")'">Calculate</button> -->
     <button type="submit">Calculate</button>
-</div>
+</form>
