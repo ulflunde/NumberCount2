@@ -48,20 +48,20 @@ namespace NumberCount2
                 app.UseExceptionHandler("/Home/Error");
             }
 
-            app.Map("/FutureAction", HandleNumberCount);
+            app.Map("/FutureAction", HandleNumberCount);  // defined in NumberCount.cs (below)
 
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
                     "Home", 
-                    "Home/Contact",
+                    "Home/Contact",  // defined in HomeController.cs
                     defaults: new { controller = "Home", action = "Contact" });
                 routes.MapRoute(
-                    "About", 
-                    "{controller=Home}/{action=About}/{id?}");
-                routes.MapRoute(
-                    name: "default",
+                    name: "default",  // defined in NumberCountController.cs
                     template: "{controller=NumberCount}/{action=DefaultAction}");
+                routes.MapRoute(
+                    "About",  // defined in HomeController.cs
+                    "{controller=Home}/{action=Om}/{id?}");
             });
         }
 
@@ -69,7 +69,7 @@ namespace NumberCount2
         {
             app.Run(async context =>
             {
-                await context.Response.WriteAsync("This is the action method you get if you add \"FutureAction\" to the URL.");
+                await context.Response.WriteAsync("This is the action method you get if you add \"FutureAction\" to the URL.\nTry also \"Home/Contact\"!");
             });
         }
     }

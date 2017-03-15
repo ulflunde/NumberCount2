@@ -11,9 +11,15 @@ namespace NumberCount2.Controllers
 {
     public class NumberCountController : Controller
     {
-        //
-        // GET: /NumberCount/
-        // This is an HTTP GET method that is invoked by appending "/NumberCount/" to the base URL.
+        /// <summary>
+        /// GET: /NumberCount/
+        /// This is an HTTP GET method that is invoked by appending "/NumberCount/" to the base URL.
+        /// This method returns a View object. It uses a view template to generate an HTML response
+        /// to the browser. Controller methods (also known as action methods) such as the Index method
+        /// generally return an IActionResult (or a class derived from ActionResult), not primitive
+        /// types like string.
+        /// </summary>
+        /// <returns></returns>
         public IActionResult Index()
         {
             return View();
@@ -24,7 +30,7 @@ namespace NumberCount2.Controllers
         // This is an HTTP GET method that is invoked by appending "/NumberCount/DefaultAction" to the base URL.
         public string DefaultAction()
         {
-            return "This is the default action method if no MVC is used. If MVC is used, this is the action method you get when you add \"NumberCount\" to the URL.";
+            return "This is the default action method.\nIt is also the action method you get when you add \"NumberCount\" to the URL.\nTry also \"FutureAction\"!";
         }
 
     }

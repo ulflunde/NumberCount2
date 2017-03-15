@@ -1,13 +1,13 @@
-﻿<!DOCTYPE html>
+﻿@{
+    ViewData["Title"] = "Index";  // This title never appears. Why?
+}
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>@ViewBag.Title</title>
-</head>
-<body>
-    <div>
+<h2>NumberCount</h2>
+
+   <div>
+       <!-- By default, every layout must call RenderBody . Wherever the call to RenderBody is placed, the contents of the view will be rendered. -->
         @RenderBody()
     </div>
-</body>
-</html>
+
+<p>This layout is defined by the NumberCountMenu View Template.</p>
+<p>Now try appending "NumberCount" to the URL!</p>

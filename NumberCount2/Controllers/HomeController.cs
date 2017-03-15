@@ -10,19 +10,20 @@ namespace NumberCount2.Controllers
     {
         public IActionResult Index()
         {
+            ViewData["Message"] = "This is the Index page.";
             return View();
         }
 
-        public IActionResult About()
+        public IActionResult Om()
         {
-            ViewData["Message"] = "This is the action method you get if you add \"Home/About\" to the URL.";
+            ViewData["Message"] = "This is the action method you get if you add \"Home/About\" to the URL.";  // This message never appears. Why?
 
             return View();
         }
 
         public IActionResult Contact()
         {
-            ViewData["Message"] = "This is the action method you get if you add \"Home/Contact\" to the URL.";
+            ViewData["Message"] = "This is the action method you get if you add \"Home/Contact\" to the URL. See what happens if you try \"Home/Om\"!";
 
             return View();
         }
