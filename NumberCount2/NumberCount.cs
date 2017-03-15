@@ -52,17 +52,29 @@ namespace NumberCount2
 
             app.UseMvc(routes =>
             {
+                // The method routes.MapRoute() takes three arguments: name, template, and defaults.
                 routes.MapRoute(
-                    "Home", 
-                    "Home/Contact",  // defined in HomeController.cs
-                    defaults: new { controller = "Home", action = "Contact" });
-                routes.MapRoute(
-                    name: "default",  // defined in NumberCountController.cs
-                    template: "{controller=NumberCount}/{action=DefaultAction}");
+                    "default",
+                    "Index",
+                    defaults: new { controller = "NumberCount", action = "Index" });
                 routes.MapRoute(
                     "About",  // defined in HomeController.cs
                     "{controller=Home}/{action=Om}/{id?}");
+                routes.MapRoute(
+                    "Index",
+                    "Numbercount/Index",
+                    defaults: new { controller = "NumberCount", action = "Index" });
+                routes.MapRoute(
+                    "Kontakt",
+                    "Home/Contact",  // defined in HomeController.cs
+                    defaults: new { controller = "Home", action = "Contact" });
+                routes.MapRoute(
+                    name: "DefaultAction",  // defined in NumberCountController.cs
+                    template: "{controller=NumberCount}/{action=DefaultAction}");
             });
+
+            // Add static files to the request pipeline. Without this, the app won't find its CSS files.
+            app.UseStaticFiles();
         }
 
         private static void HandleNumberCount(IApplicationBuilder app)

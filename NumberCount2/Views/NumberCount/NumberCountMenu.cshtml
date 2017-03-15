@@ -1,13 +1,31 @@
-﻿@{
-    ViewData["Title"] = "Index";  // This title never appears. Why?
+﻿@* NumberCountMenu View Template.
+    Defines the layout for all MVC views in the application.
+*@
+@{
+    ViewData["Title"] = "Let's play";
 }
-
-<h2>NumberCount</h2>
-
-   <div>
-       <!-- By default, every layout must call RenderBody . Wherever the call to RenderBody is placed, the contents of the view will be rendered. -->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] NumberCount!</title>
+    <environment names="Development">
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+        <link rel="stylesheet" href="~/css/site.css" />
+    </environment>
+    <environment names="Staging,Production">
+        <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/css/bootstrap.min.css"
+              asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
+              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
+        <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
+    </environment>
+</head>
+<body>
+    <h2>NumberCount</h2>
+        <!-- By default, every layout must call RenderBody . Wherever the call to RenderBody is placed, the contents of the selected cshtml view will be rendered. -->
         @RenderBody()
-    </div>
-
-<p>This layout is defined by the NumberCountMenu View Template.</p>
-<p>Now try appending "NumberCount" to the URL!</p>
+    <p>You are running the application "NumberCount".</p>
+    <p>To restart the UI, replace everything after the port number in the URL with "<a href="../Index">/Index</a>".</p>
+</body>
+</html>

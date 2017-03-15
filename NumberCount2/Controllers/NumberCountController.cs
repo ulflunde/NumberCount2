@@ -30,7 +30,10 @@ namespace NumberCount2.Controllers
         // This is an HTTP GET method that is invoked by appending "/NumberCount/DefaultAction" to the base URL.
         public string DefaultAction()
         {
-            return "This is the default action method.\nIt is also the action method you get when you add \"NumberCount\" to the URL.\nTry also \"FutureAction\"!";
+            string message = "This is the default action method.\n"
+                + "It is also the action method you get when you add \"NumberCount\" or \"NumberCount/DefaultAction\" to the URL.\n"
+                + "Try also \"FutureAction\"!";
+            return message;
         }
 
     }
