@@ -17,16 +17,14 @@ textarea {
     max-width: 280px;
 }
 
-input {
-    max-width: 40px;
-}
-
 button {
-    margin-bottom: 1cm;
+    margin-top: 4mm;
+    margin-bottom: 20mm;
 }
 
 h2 {
-    margin-bottom: 1cm;
+    margin-bottom: 15mm;
+    text-align: center;
 }
 
 /* Carousel */
@@ -47,3 +45,48 @@ h2 {
         display: none;
     }
 }
+
+#footer {
+    font-size: xx-small;
+}
+
+#form {
+    margin-left: auto;
+    margin-right: 0;
+    text-align: center;
+}
+
+#button0, #button1, #button2, #button3, #button4 {
+    margin-left: auto;
+    text-align: center;
+    font-size: 130%;
+    color: #FFFFFF;
+    background: #B9A631;
+    border: 0px solid;
+    border-radius: 25px;
+    padding: 4px;
+}
+
+#upper {
+    max-width: 40px;
+}
+
+.centered_text {
+    text-align: center;
+    margin-top: -165px;
+    margin: auto;
+    width: 35%;
+    background-color: transparent;
+    position: relative;
+}
+
+ul {
+    list-style-type: none;
+}
+
+
+
+
+
+
+

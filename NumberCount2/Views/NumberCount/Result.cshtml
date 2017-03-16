@@ -2,4 +2,19 @@
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
+    ViewData["Title"] = "NumberCount Result page";
 }
+<div class="centered_text">
+    @if (ViewData["success"].Equals("true"))
+    {
+        @:<p>To write the numbers from 1 to @ViewData["UpperLimit"], you need:</p>
+        @:<div id="list"><ul id="ul"><li>@ViewData["1"] '1's</li><li>@ViewData["2"] '2's</li><li>@ViewData["3"] '3's</li><li>@ViewData["4"] '4's</li><li>@ViewData["5"] '5's</li>
+        @:<li>@ViewData["6"] '6's</li><li>@ViewData["7"] '7's</li><li>@ViewData["8"] '8's</li><li>@ViewData["9"] '9's</li><li>@ViewData["0"] '0's</li></ul></div>
+    }
+    else
+    {
+        @:<p>"@ViewData["UpperLimit"]" is not a valid number.</p>
+    }
+
+    <a href="/NumberCount/Index"><input name="register" type="submit" id="button0" value="Back"></a>
+</div>

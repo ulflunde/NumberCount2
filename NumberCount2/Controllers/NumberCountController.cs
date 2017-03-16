@@ -49,16 +49,39 @@ namespace NumberCount2.Controllers
 
         private void HandleUserInteraction()
         {
+            short lowerLimit, upperLimit;
+            string u2 = "";
             NumberSeries numbers = null;
-
-            // System.Web cannot be used in .NET Core. Rewriting using Microsoft.AspNetCore.WebUtilities.
             HttpRequest uri = HttpContext.Request;
             QueryString query = uri.QueryString;
-            var queryDictionary = QueryHelpers.ParseQuery(query.ToString());
+            var queryDictionary = QueryHelpers.ParseQuery(query.ToString());  // System.Web cannot be used in .NET Core. Had to rewrite using Microsoft.AspNetCore.WebUtilities.
+
+            ViewData["success"] = "false";
             if (queryDictionary.ContainsKey("upto"))
             {
-                string u2 = queryDictionary["upto"];
-                // UNFINISHED
+                u2 = queryDictionary["upto"];
+                ViewData["UpperLimit"] = u2;
+            }
+
+            lowerLimit = 1;
+            if (Int16.TryParse(u2, out upperLimit))
+            {
+                upperLimit = Int16.Parse(u2);
+                if (upperLimit >= lowerLimit)
+                {
+                    numbers = new NumberSeries(upperLimit);
+                    ViewData["1"] = numbers.Count(1);
+                    ViewData["2"] = numbers.Count(2);
+                    ViewData["3"] = numbers.Count(3);
+                    ViewData["4"] = numbers.Count(4);
+                    ViewData["5"] = numbers.Count(5);
+                    ViewData["6"] = numbers.Count(6);
+                    ViewData["7"] = numbers.Count(7);
+                    ViewData["8"] = numbers.Count(8);
+                    ViewData["9"] = numbers.Count(9);
+                    ViewData["0"] = numbers.Count(0);
+                    ViewData["success"] = "true";
+                }
             }
 
             return;
